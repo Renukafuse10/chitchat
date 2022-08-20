@@ -16,6 +16,12 @@ mongoose.connect(MONGO_URI,()=>{
     console.log("connected to MongoDB")
 })
 
+app.get('/health',(req, res)=>{
+    res.json({
+        status:'All Good👍'
+    })
+})
+
 app.post('/signup', async(req, res)=>{
     const fullName = req.body.fullName;
     const email = req.body.email;
@@ -75,12 +81,6 @@ app.post('/send', async(req,res)=>{
 app.get('/messages', async(req,res)=>{
     const messages = await Message.find();
     res.send(messages);
-})
-
-app.get('/health',(req, res)=>{
-    res.json({
-        status:'All Good👍'
-    })
 })
 
 app.listen( PORT, ()=>{
