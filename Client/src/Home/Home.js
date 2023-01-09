@@ -3,13 +3,16 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import './Home.css'
 import Message from './../Message/Message'
+import SendIcon from '@mui/icons-material/Send';
+
 
 function Home() {
 
   const [messages, setMessages] = useState([])
   const [currentUser, setCurrentUser] = useState([])
-  const[text,setText]=useState(" ");
-  const[toEmail,setToEmail]=useState(" ");
+  const [text, setText] = useState(" ");
+  const [toEmail, setToEmail] = useState(" ");
+
 
 
   useEffect(() => {
@@ -20,9 +23,11 @@ function Home() {
 
     }
     else {
-      alert('you need to login first')
-      window.location = './login'
+      alert('you need to first login')
+      window.location = '/login'
     }
+
+
 
 
     async function fetchData() {
@@ -33,45 +38,62 @@ function Home() {
     fetchData()
   }, [])
 
-async function sendMessage()
-{
- await axios.post('/send',{
-   "to": toEmail,
-   "from": currentUser.email,
-   "text": text
-  })
+  async function sendMessage() {
+    await axios.post('/send', {
+      "to": toEmail,
+      "from": currentUser.fullName,
+      "text": text
+    })
 
-  window.location.reload();
-  setText("")
-}
+    window.location.reload();
+    setText("")
+  }
 
   return (
-    <div>
-      <h2>Hello {currentUser.fullName}</h2>
-    <div className='chatContainer'>
-    {
-        messages.map((message) => {
-          const type= currentUser.email=== message.from ? 'outgoing' :'incoming';
-          return(
-            <div>
 
-              <Message to={message.to} from={message.from}  text={message.text} type={type}/>
-           
+      <div className='container-fluid bgImg '>
+        <div className='row d-flex justify-content-center m-0 p-0'>
+          <div className='col-12 col-md-7 col-lg-7 chatContainer m-0 p-0 '>
+       
+
+              <h2 className='text-center headLine'>Hello {currentUser.fullName} 👋</h2>
+              <div className='msgarea'>
+                {
+                  messages.map((message) => {
+                    const type = currentUser.fullName === message.from ? 'outgoing' : 'incoming';
+                    return (
+                      <div>
+
+                        <Message to={message.to} from={message.from} text={message.text} type={type} />
+
+                      </div>
+
+                    )
+
+                  })
+                }
+              </div>
+                       
+      
+
+
+              <div className=' messagearea d-flex justify-content-between align-items-center'>
+                {/* <input type="email" placeholder='To Email' onChange={(e) => { setToEmail(e.target.value) }} /> */}
+                {/* <input type="text" placeholder='Enter Text' onChange={(e) => { setText(e.target.value) }} /> */}
+                <textarea class="form-control" id="textAreaExample" placeholder='Enter Text' onChange={(e) => { setText(e.target.value) }} rows="4"></textarea>
+                <button className='sendbtn ' onClick={sendMessage}><SendIcon /></button>
+              </div>
+
+            </div>
+
           </div>
 
-          )
-         
-        })
-      }
-    </div>
-    <div>
-    <input type="email" placeholder='To Email' onChange={(e)=>{setToEmail(e.target.value)}}/>
-      <input type="text" placeholder='Enter Text' onChange={(e)=>{setText(e.target.value)}}/>
-       <button onClick={sendMessage}>Send</button>
-    </div>
-     
-    </div>
-  )
+
+        </div>
+
+
+  
+      )
 }
 
-export default Home
+      export default Home

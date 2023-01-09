@@ -12,12 +12,13 @@ import {
 function App() {
 
   return (
-    <div className="container">
+    <div className="container-fluid p-0 m-0">
       <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home/>}/>
+      <Route path='/' element={<Signup/>}/>
+        <Route path='/home' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/signup' element={<Signup/>}/>
+ 
       </Routes>
       </BrowserRouter>
 

@@ -1,0 +1,58 @@
+.img2{
+    opacity: 0.4;
+    /* max-width: 20.5em;
+    min-width: 21.8em; */
+    width: 100%;
+    border-radius: 8px;
+    height: 13em;
+
+}
+.imgg{
+    margin-top: -5em;
+}
+.signupform{
+    box-shadow: 0px 1px 2px 0px black;
+    border-radius: 10px;
+    background-color: white;
+    opacity: 0.9;
+
+}
+.rowheight{
+    height: 100vh;
+}
+
+
+.css-1nrlq1o-MuiFormControl-root {
+    width: 100% !important;
+}
+
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root{
+    width: 100% !important;
+}
+
+.bgimg2{
+    background-image: url('https://zephyrproject.org/wp-content/uploads/sites/38/2019/10/learn-header.png');
+   background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+
+}
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input{
+    padding: 0.7em !important;
+}
+.css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root{
+    padding: 0.7em !important;
+}
+
+@media only screen and (min-device-width : 320px)and (max-device-width : 425px) {
+    .img2{
+        opacity: 0.4;
+        /* max-width: 20.5em;
+        min-width: 21.8em; */
+        width: 100%;
+        border-radius: 8px;
+        height: 10em;
+    
+    }
+
+}

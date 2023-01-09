@@ -1,6 +1,61 @@
-.chatContainer{
-    background-color: azure;
-    padding:20px;
-    max-height: 70vh;
+.chatContainer {
+/* background-color: white;
+opacity:0.8; */
+    height: 100vh;
+
+    /* border: 2px solid black; */
+}
+
+.form-control {
+    width: 85% !important;
+    height: 4px !important;
+}
+
+.sendbtn {
+    border: none;
+    background-color: rgb(55, 9, 101);
+    color: white;
+    border-radius: 48%;
+    padding: 10px 10px 10px 14px;
+    
+}
+
+.messagearea {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 0em 0.5em 0em 0.5em;
+}
+
+.msgarea {
     overflow-y: scroll;
+    height: 80vh;
+   
+}
+
+.msgarea::-webkit-scrollbar {
+    display: none;
+}
+
+.headLine {
+    background-color: rgb(46, 16, 33);
+    color: white;
+    padding: 0.3em;
+    opacity: 0.6;
+    border-radius:50px;
+    text-transform: uppercase;
+}
+/* .bgImg{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('https://youthoncourse.org/wp-content/uploads/2021/04/partner-portal-header.jpg');
+
+} */
+.opacitypart{
+    opacity: 1;
+}
+.bgImg{
+    background-image: url('https://youthoncourse.org/wp-content/uploads/2021/04/partner-portal-header.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; 
 }

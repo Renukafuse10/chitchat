@@ -2,20 +2,34 @@ import React from 'react'
 import "./Message.css"
 
 function Message(props) {
+
+    const current = new Date();
+    // By default US English uses 12hr time with AM/PM
+const time = current.toLocaleTimeString("en-US");
+  
     return (
-        <div className={`messageContainer-${props.type} `}>
-            <div className={`messageContent ${props.type}`}>
+        <div className={`messageContainer-${props.type}  `} >
+            <div className={`messageContent ${props.type} `}>
 
                 {
                     props.type === 'incoming' ?
-                        <b className='email'>{props.from}</b>
+                        <p className='email m-0 p-0'>{props.from}</p>
                         :
-                        <b className='email'>{props.to}</b>
+                        <p className='email m-0 p-0'>{props.to}</p>
                 }
-                {props.text}
+                <div className='d-flex align-items-center mt-0 pt-0'>
+                <p className='text m-0 p-0'>{props.text}</p>  <span className='time mx-2 mt-2 '> {time}</span>
+
+                </div>
+
 
             </div>
+        
+             
+         
         </div>
+      
+
     )
 }
 
